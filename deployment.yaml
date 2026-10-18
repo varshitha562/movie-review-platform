@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-review-platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movie-review-platform
+  template:
+    metadata:
+      labels:
+        app: movie-review-platform
+    spec:
+      containers:
+        - name: movie-review-platform
+          image: movie-review-platform:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
