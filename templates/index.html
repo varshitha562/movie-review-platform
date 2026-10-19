@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +18,21 @@
     <main class="movie-container">
         {% for movie in movies %}
         <div class="movie-card">
-            <h2>{{ movie.title }}</h2>
-            <p><strong>Genre:</strong> {{ movie.genre }}</p>
-            <p><strong>Rating:</strong> ⭐ {{ movie.rating }}/10</p>
-            <p>{{ movie.description }}</p>
+
+            <img
+                class="movie-poster"
+                src="{{ movie.poster }}"
+                alt="{{ movie.title }} poster"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="movie-details">
+                <h2>{{ movie.title }}</h2>
+                <p><strong>Genre:</strong> {{ movie.genre }}</p>
+                <p><strong>Rating:</strong> ⭐ {{ movie.rating }}/10</p>
+                <p>{{ movie.description }}</p>
+            </div>
+
         </div>
         {% endfor %}
     </main>

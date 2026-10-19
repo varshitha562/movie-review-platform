@@ -1,4 +1,5 @@
 
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,20 +16,49 @@ header {
 
 .movie-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     gap: 20px;
-    padding: 30px;
+    max-width: 850px;
+    margin: auto;
+    padding: 30px 20px;
 }
 
 .movie-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
     background: white;
-    width: 260px;
+    width: auto;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px #00000015;
 }
 
+.movie-poster {
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.movie-details {
+    flex: 1;
+}
+
 .movie-card h2 {
     color: #202040;
+    margin-top: 0;
+}
+
+@media (max-width: 480px) {
+    .movie-card {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .movie-poster {
+        width: 100px;
+        height: 150px;
+    }
 }
