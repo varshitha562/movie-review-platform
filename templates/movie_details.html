@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }} - Movie Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f3f9;
+            margin: 0;
+            padding: 30px;
+            color: #222;
+        }
+        .movie-card {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            gap: 25px;
+            box-shadow: 0 4px 12px #ddd;
+        }
+        img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        h1 { color: #202040; }
+        a { color: #4545a0; }
+        @media (max-width: 600px) {
+            .movie-card { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <a href="/">← Back to Home</a>
+
+    <div class="movie-card">
+        <img src="{{ movie.poster }}" alt="{{ movie.title }} poster">
+
+        <div>
+            <h1>{{ movie.title }}</h1>
+            
+            <p><strong>Genre:</strong> {{ movie.genre }}</p>
+<p><strong>Rating:</strong> ⭐ {{ movie.rating }}/10</p>
+<p><strong>Release Year:</strong> {{ movie.year }}</p>
+<p><strong>Director:</strong> {{ movie.director }}</p>
+<p><strong>Cast:</strong> {{ movie.cast }}</p>
+<p><strong>Story:</strong> {{ movie.story }}</p>
+        </div>
+    </div>
+</body>
+</html>

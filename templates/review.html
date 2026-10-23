@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Review</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>✍️ Write a Movie Review</h1>
+        <p>Share your thoughts about a movie</p>
+    </header>
+
+    <main class="movie-container">
+        <div class="movie-card">
+            <form action="/review" method="POST">
+                <label for="name">Your Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="movie">Choose Movie:</label><br>
+                <select id="movie" name="movie_id" required>
+                    {% for movie in movies %}
+                    <option value="{{ movie.id }}">{{ movie.title }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label for="rating">Rating (1–10):</label><br>
+                <input type="number" id="rating" name="rating"
+                       min="1" max="10" required><br><br>
+
+                <label for="comment">Your Review:</label><br>
+                <textarea id="comment" name="comment"
+                          rows="5" required></textarea><br><br>
+
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+        <p><a href="/">← Back to Home</a></p>
+    </main>
+</body>
+</html>

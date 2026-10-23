@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,31 +9,51 @@
           href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
     <header>
         <h1>🎬 Movie Review Platform</h1>
-        <p>Discover movies and explore their ratings</p>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/review">Write a Review</a>
+        </nav>
     </header>
 
-    <main class="movie-container">
-        {% for movie in movies %}
-        <div class="movie-card">
-
-            <img
-                class="movie-poster"
-                src="{{ movie.poster }}"
-                alt="{{ movie.title }} poster"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="movie-details">
-                <h2>{{ movie.title }}</h2>
-                <p><strong>Genre:</strong> {{ movie.genre }}</p>
-                <p><strong>Rating:</strong> ⭐ {{ movie.rating }}/10</p>
-                <p>{{ movie.description }}</p>
-            </div>
-
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Discover Your Next Favourite Movie</h2>
+            <p>Explore movies, discover stories, and share your reviews.</p>
+            <a class="hero-button" href="#movies">Explore Movies</a>
+            <a class="hero-button secondary" href="/review">Write a Review</a>
         </div>
-        {% endfor %}
+    </section>
+
+    <main class="movie-container" id="movies">
+        <h2 class="section-title">Featured Movies</h2>
+
+        <div class="movie-grid">
+            {% for movie in movies %}
+            <div class="movie-card">
+
+                <img
+                    class="movie-poster"
+                    src="{{ movie.poster }}"
+                    alt="{{ movie.title }} poster"
+                    onerror="this.style.display='none'"
+                >
+
+                <div class="movie-details">
+                    <h2>{{ movie.title }}</h2>
+                    <p>{{ movie.genre }}</p>
+                    <p>⭐ {{ movie.rating }}/10</p>
+                    <p>{{ movie.description }}</p>
+                    <p>📅 {{ movie.year }}</p>
+                    <a href="/movie/{{ movie.id }}">View Details</a>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
     </main>
+
 </body>
 </html>
